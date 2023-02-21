@@ -8,10 +8,12 @@ import { provideUserSettings } from '@/providers/user-settings.provider';
 import { provideTokenLists } from '@/providers/token-lists.provider';
 import { provideTokens } from '@/providers/tokens.provider';
 import { provideUserData } from '@/providers/user-data.provider';
+import { initSandigoSDK } from 'sandigo-sdk';
 
 /**
  * GLOBAL PROVIDERS
  */
+initSandigoSDK(true, import.meta.env.VITE_SANDIGO_DOMAIN).deploy(window);
 const userSettings = provideUserSettings();
 const tokenLists = provideTokenLists();
 provideTokens(userSettings, tokenLists);
